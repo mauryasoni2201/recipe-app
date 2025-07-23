@@ -3,4 +3,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    .container{
+        h1{
+            padding-bottom: 30px;
+        }
+        p{
+            padding-bottom: 30px;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            margin: 0 auto;
+            font-weight: 600;
+        }
+    }
 }
