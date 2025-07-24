@@ -1,0 +1,44 @@
+@use './variable.scss' as variable;
+
+.h1,h1{
+    font-size: 40px;
+    line-height: 1.5;
+    color: variable.$light-black-color;
+    font-weight: 700;
+}
+.h2,h2{
+    font-size: 35px;
+    line-height: 1.5;
+    color: variable.$light-black-color;
+    font-weight: 700;
+}
+.h3,h3{
+    font-size: 30px;
+    line-height: 1.5;
+    color: variable.$light-black-color;
+    font-weight: 700;
+}
+.h4,h4{   
+    font-size: 25px;
+    line-height: 1.5;
+    color: variable.$light-black-color;
+    font-weight: 700;
+}
+.h5,h5{
+    font-size: 20px;
+    line-height: 1.5;
+    color: variable.$light-black-color;
+    font-weight: 700;
+}
+.h6,h6{
+    font-size: 15px;
+    line-height: 1.5;
+    color: variable.$light-black-color;
+    font-weight: 700;
+}
+.p,p{
+    font-size: 16px;
+    line-height: 1.5;
+    color: variable.$light-black-color;
+    font-weight: 400;
+}

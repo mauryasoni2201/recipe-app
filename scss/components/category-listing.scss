@@ -15,12 +15,18 @@
             display: block;
             padding: 25px;
             border-radius: 10px;
+            position: relative;
             transition: variable.$transition;
             &:hover{
                 background-color: variable.$white-color;  
                 .content .text{
                     color: variable.$primary-color;
                 }
+            }
+            .category-link{
+                position: absolute;
+                height: 100%;
+                width: 100%;
             }
             .content{
                 .text{

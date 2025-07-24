@@ -20,7 +20,7 @@ const NotFound = () => {
       <CommonHead metaData={meta.metaData} />
       <Section className="not-found">
         <div className="not-found-content-wrapper">
-          <h1 className="h1 text-center">Page Not Found</h1>
+          <h1 className="h1 text-center">Not Found!</h1>
           <p className="p text-center">
             Oops! You seem to have lost your way. Click below to find your favourite recipe.
           </p>
