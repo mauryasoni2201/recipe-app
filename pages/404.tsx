@@ -1,9 +1,24 @@
+import CommonHead from "@/components/CommonHead/CommonHead";
+import Section from "@/components/Section/Section";
+import MetaDataProps from "@/models/MetaDataProps";
 import Link from "next/link";
 
 const NotFound = () => {
+  const meta: MetaDataProps = {
+    metaData: {
+      title: "Page not found.",
+      description: "Page not found",
+      keywords: "not found,page does not exist",
+      og: {
+        title: "Page not found.",
+        description: "Page not found.",
+      },
+    },
+  };
   return (
-    <section className="not-found">
-      <div className="container">
+    <>
+      <CommonHead metaData={meta.metaData} />
+      <Section className="not-found">
         <div className="not-found-content-wrapper">
           <h1 className="h1 text-center">Page Not Found</h1>
           <p className="p text-center">
@@ -15,8 +30,9 @@ const NotFound = () => {
             </Link>
           </div>
         </div>
-      </div>
-    </section>
+      </Section>
+    </>
   );
 };
+
 export default NotFound;

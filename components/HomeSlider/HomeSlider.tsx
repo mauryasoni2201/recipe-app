@@ -1,16 +1,13 @@
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import Link from "next/link";
 import { SliderRecipeImage } from "@/models/HomeSliderProps";
-
-const Slider = dynamic(() => import("react-slick"), { ssr: false });
 
 interface HomeSliderProps {
   recipes: SliderRecipeImage[];
 }
-
 const HomeSlider = ({ recipes }: HomeSliderProps) => {
   const settings = {
     dots: false,
@@ -53,4 +50,5 @@ const HomeSlider = ({ recipes }: HomeSliderProps) => {
     </Slider>
   );
 };
+
 export default HomeSlider;

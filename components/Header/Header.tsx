@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 
 const Header = () => {
   const path = usePathname();
-  path.startsWith("/recipes");
+
   return (
     <div className="header-wrap">
       <header>
@@ -12,8 +12,8 @@ const Header = () => {
           <div className="header-content">
             <div className="header-left">
               <div className="logo">
-                <Link href={"/"}>
-                  <Image fill src={"/logo.svg"} alt="site-logo" />
+                <Link href="/">
+                  <Image src="/logo.svg" alt="site-logo" fill />
                 </Link>
               </div>
             </div>
@@ -22,12 +22,14 @@ const Header = () => {
                 <nav>
                   <ul>
                     <li>
-                      <Link className={``} href={"/"}>
+                      <Link href="/" className={path === "/" ? "active" : ""}>
                         Home
                       </Link>
                     </li>
                     <li>
-                      <Link href={"/recipes"}>Recipes</Link>
+                      <Link href="/recipes" className={path.startsWith("/recipes") ? "active" : ""}>
+                        Recipes
+                      </Link>
                     </li>
                   </ul>
                 </nav>

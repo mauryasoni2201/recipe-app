@@ -1,5 +1,8 @@
+import CategoryListing from "@/components/CategoryListing/CategoryListing";
 import CommonHead from "@/components/CommonHead/CommonHead";
 import HomeSlider from "@/components/HomeSlider/HomeSlider";
+import RecipeListing from "@/components/RecipeListing/RecipeListing";
+import Section from "@/components/Section/Section";
 import HomeSliderProps from "@/models/HomeSliderProps";
 import MetaDataProps from "@/models/MetaDataProps";
 
@@ -21,17 +24,23 @@ export default function Home({ data }: HomeSliderProps) {
     <>
       <CommonHead metaData={meta.metaData} />
       <HomeSlider recipes={data.recipes} />
+      <CategoryListing categories={data.categories} />
+      <Section className="pt-none">
+        <h2 className="h2 pb-large">Top Rated Recipes</h2>
+        <RecipeListing recipes={data.topRatedRecipes} />
+      </Section>
+      <Section className="pt-none">
+        <h2 className="h2 pb-large">Under 30 Minutes</h2>
+        <RecipeListing recipes={data.underThirtyMinutesRecipes} />
+      </Section>
     </>
   );
 }
-export async function getStaticProps() {
+
+export async function getServerSideProps() {
   const response: Response = await fetch(`${process.env.NEXT_RECIPES_API_URL}`);
   const data = await response.json();
-  const categories: string[] = [];
-  data.recipes.map((element: { mealType: string[] }) => {
-    element.mealType.map((element) => categories.push(element));
-  });
-  const filteredCategory = [...new Set(categories)];
+  const filteredCategory = [...new Set(data.recipes.flatMap((recipe: { mealType: string }) => recipe.mealType))];
   const topRatedRecipes = data.recipes.filter((element: { rating: number }) => element.rating > 4.5);
   const underThirtyMinutesRecipes = data.recipes.filter(
     (element: { prepTimeMinutes: number; cookTimeMinutes: number }) =>

@@ -8,12 +8,16 @@ if (!recipeDomain) {
 
 const nextConfig: NextConfig = {
   images: {
-    domains: [recipeDomain]
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: recipeDomain?.replace(/^https?:\/\//, '') || '',
+      },
+    ],
   },
   env: {
     NEXT_RECIPES_API_URL: process.env.NEXT_RECIPES_API_URL,
   },
 };
-
 export default nextConfig;
 
