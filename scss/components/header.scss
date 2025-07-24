@@ -9,6 +9,7 @@
         width: 100%;
         background-color: variable.$white-color;
         box-shadow: variable.$box-shadow;
+        z-index: 12;
         .container{
             .header-content{
                 display: flex;
@@ -35,6 +36,9 @@
                                         transition: variable.$transition;
                                         font-weight: 500;
                                         &:hover{
+                                            color: variable.$primary-color;
+                                        }
+                                        &.active{
                                             color: variable.$primary-color;
                                         }
                                     }
