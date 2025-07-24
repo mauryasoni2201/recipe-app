@@ -1,4 +1,5 @@
 import CommonHead from "@/components/CommonHead/CommonHead";
+import Section from "@/components/Section/Section";
 import MetaDataProps from "@/models/MetaDataProps";
 
 const Recipes = () => {
@@ -18,6 +19,9 @@ const Recipes = () => {
   return (
     <>
       <CommonHead metaData={meta.metaData} />
+      <Section>
+        <h1 className="h1 text-center pb-medium">Recipes</h1>
+      </Section>
     </>
   );
 };

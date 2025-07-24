@@ -12,10 +12,10 @@ const RecipeDetailPage = ({ recipeDetail }: { recipeDetail: RecipeDetailProps })
       og: {
         title: `${recipeDetail.name}`,
         description: `${recipeDetail.instructions.map((instruction) => `${instruction}`)}`,
+        image: recipeDetail.image,
       },
     },
   };
-
   return (
     <>
       <CommonHead metaData={meta.metaData} />
