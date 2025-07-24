@@ -3,6 +3,7 @@ import MetaDataProps from "@/models/MetaDataProps";
 
 const CommonHead = ({ metaData }: MetaDataProps) => {
   const { title, description, keywords, og } = metaData;
+  
   return (
     <Head>
       <title>{title}</title>
@@ -12,8 +13,10 @@ const CommonHead = ({ metaData }: MetaDataProps) => {
       <meta charSet="UTF-8" />
       <meta property="og:title" content={og.title} />
       <meta property="og:description" content={og.description} />
+      <meta property="og:image" content={og.image} />
       <meta property="og:type" content="website" />
     </Head>
   );
 };
+
 export default CommonHead;

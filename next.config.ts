@@ -7,6 +7,7 @@ if (!recipeDomain) {
 }
 
 const nextConfig: NextConfig = {
+  trailingSlash: true,
   images: {
     remotePatterns: [
       {

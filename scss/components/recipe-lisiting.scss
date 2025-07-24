@@ -56,6 +56,10 @@
                                 transition: variable.$transition;
                                 font-size: 14px;
                                 line-height: 1.25;
+                                height: 100%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
                                 &:hover{
                                     background: variable.$white-color;
                                     color: variable.$black-color;
