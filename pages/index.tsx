@@ -38,22 +38,29 @@ export default function Home({ data }: HomeSliderProps) {
 }
 
 export async function getServerSideProps() {
-  const response: Response = await fetch(`${process.env.NEXT_RECIPES_API_URL}`);
-  const data = await response.json();
-  const filteredCategory = [...new Set(data.recipes.flatMap((recipe: { mealType: string }) => recipe.mealType))];
-  const topRatedRecipes = data.recipes.filter((element: { rating: number }) => element.rating > 4.5);
-  const underThirtyMinutesRecipes = data.recipes.filter(
-    (element: { prepTimeMinutes: number; cookTimeMinutes: number }) =>
-      element.prepTimeMinutes + element.cookTimeMinutes < 30
-  );
-  return {
-    props: {
-      data: {
-        recipes: data.recipes,
-        topRatedRecipes,
-        underThirtyMinutesRecipes,
-        categories: filteredCategory,
+  try {
+    const response: Response = await fetch(`${process.env.NEXT_RECIPES_API_URL}`);
+    const data = await response.json();
+    const filteredCategory = [...new Set(data.recipes.flatMap((recipe: { mealType: string }) => recipe.mealType))];
+    const topRatedRecipes = data.recipes.filter((element: { rating: number }) => element.rating > 4.5);
+    const underThirtyMinutesRecipes = data.recipes.filter(
+      (element: { prepTimeMinutes: number; cookTimeMinutes: number }) =>
+        element.prepTimeMinutes + element.cookTimeMinutes < 30
+    );
+    return {
+      props: {
+        data: {
+          recipes: data.recipes,
+          topRatedRecipes,
+          underThirtyMinutesRecipes,
+          categories: filteredCategory,
+        },
       },
-    },
-  };
+    };
+  } catch (error) {
+    console.error("Error fetching recipes:", error);
+    return {
+      notFound: true,
+    };
+  }
 }

@@ -1,0 +1,20 @@
+@use '../variable.scss' as variable;
+
+.btn{
+    padding: 10px 30px;
+    font-size: 15px;
+    line-height: 1.25;
+    color: variable.$white-color;
+    background-color: variable.$black-color;
+    border-radius: 5px;
+    transition: variable.$transition;
+    border: 1px solid variable.$primary-color;
+    &.btn-primary{
+        background-color: variable.$primary-color;
+        color: variable.$white-color;
+        &:hover{
+            background-color: variable.$white-color;
+            color: variable.$primary-color;
+        }
+    }
+}

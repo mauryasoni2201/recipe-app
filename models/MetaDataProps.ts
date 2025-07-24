@@ -6,6 +6,7 @@ export default interface MetaDataProps{
        og:{
         title:string,
         description: string,
+        image?:string;
        }
     }
 }
