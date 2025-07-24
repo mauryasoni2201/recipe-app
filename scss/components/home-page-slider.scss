@@ -1,0 +1,14 @@
+.slider-link{
+    display: block;
+    .slider-image-wrapper{
+        position: relative;
+        padding-bottom: 80%;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+        }
+    }
+}

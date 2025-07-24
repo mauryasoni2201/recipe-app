@@ -1,22 +1,38 @@
+import CommonHead from "@/components/CommonHead/CommonHead";
+import Section from "@/components/Section/Section";
+import MetaDataProps from "@/models/MetaDataProps";
 import Link from "next/link";
 
 const NotFound = () => {
+  const meta: MetaDataProps = {
+    metaData: {
+      title: "Page not found.",
+      description: "Page not found",
+      keywords: "not found,page does not exist",
+      og: {
+        title: "Page not found.",
+        description: "Page not found.",
+      },
+    },
+  };
   return (
-    <section className="not-found">
-        <div className="container">
-          <div className="not-found-content-wrapper pb-large">
-            <h1 className="h1 text-center">
-                Page Not Found
-            </h1>
-            <p className="p text-center pt-large">
-                Oops! You seem to have lost your way. Click below to find your way to home.
-            </p>
-          <div className="link text-center pt-large">
-              <Link className="btn btn-primary" href={'/'}>Back To Home</Link>
-          </div>
+    <>
+      <CommonHead metaData={meta.metaData} />
+      <Section className="not-found">
+        <div className="not-found-content-wrapper">
+          <h1 className="h1 text-center">Page Not Found</h1>
+          <p className="p text-center">
+            Oops! You seem to have lost your way. Click below to find your favourite recipe.
+          </p>
+          <div className="link text-center">
+            <Link className="btn btn-primary" href={"/"}>
+              Back To Home
+            </Link>
           </div>
         </div>
-    </section>
-  )
-}
+      </Section>
+    </>
+  );
+};
+
 export default NotFound;
