@@ -16,6 +16,7 @@ const RecipeDetailPage = ({ recipeDetail }: { recipeDetail: RecipeDetailProps })
       },
     },
   };
+
   return (
     <>
       <CommonHead metaData={meta.metaData} />
@@ -23,7 +24,6 @@ const RecipeDetailPage = ({ recipeDetail }: { recipeDetail: RecipeDetailProps })
     </>
   );
 };
-
 export default RecipeDetailPage;
 
 export async function getServerSideProps(context: { params: { id: string } }) {
@@ -31,7 +31,7 @@ export async function getServerSideProps(context: { params: { id: string } }) {
     const id = context.params.id;
     const response: Response = await fetch(`${process.env.NEXT_RECIPES_API_URL}/${id}`);
     const data = await response.json();
-    if (!data) {
+    if (!response.ok) {
       return {
         notFound: true,
       };

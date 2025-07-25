@@ -37,6 +37,18 @@
             object-fit: cover;
         }
     }
+    .rating-and-reviews{ 
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding-top: 20px;
+        .review-count{
+            line-height: 1;
+            font-size: 14px;
+            color: variable.$black-color;
+            font-weight: 400;
+        }
+    }
     .details{
         display: flex;
         flex-direction: column;
