@@ -1,4 +1,6 @@
 @use './variable' as variable;
+@use './mixin' as mixin;
+@use './breakpoint' as breakpoint;
 
 html {
     -webkit-text-size-adjust: none;
@@ -156,27 +158,48 @@ input:-ms-input-placeholder {
 }
 .section,section{
     padding: 60px 0px;
+    @include mixin.respond(max,breakpoint.$breakpoint-md){
+        padding: 40px 0px;
+    }
 }
 .text-center{
     text-align: center;
 }
 .pt-large{
     padding-top: 30px;
+    @include mixin.respond(max,breakpoint.$breakpoint-xl){
+        padding-top: 20px;
+    }
 }
 .pt-medium{
     padding-top: 20px;
+    @include mixin.respond(max,breakpoint.$breakpoint-xl){
+        padding-top: 10px;
+    }
 }
 .pt-small{
     padding-top: 10px;
+    @include mixin.respond(max,breakpoint.$breakpoint-xl){
+        padding-top: 5px;
+    }
 }
 .pb-large{
     padding-bottom: 30px;
+    @include mixin.respond(max,breakpoint.$breakpoint-xl){
+        padding-bottom: 20px;
+    }
 }
 .pb-medium{
     padding-bottom: 20px;
+    @include mixin.respond(max,breakpoint.$breakpoint-xl){
+        padding-bottom: 10px;
+    }
 }
 .pb-small{
     padding-bottom: 10px;
+    @include mixin.respond(max,breakpoint.$breakpoint-xl){
+        padding-bottom: 5px;
+    }
 }
 .pt-none{
     padding-top:0px;
@@ -189,13 +212,24 @@ input:-ms-input-placeholder {
     justify-content: center;
     align-items: center;
     padding-top: 20px;
+    .css-1bug3cd-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{
+        background-color: variable.$primary-color;
+    }
 }
+
 .title-and-search{
     display: flex;
     justify-content:space-between;
     align-items: center;
     padding-bottom: 30px;
+    @include mixin.respond(max,breakpoint.$breakpoint-md){
+        flex-direction: column;
+        gap: 15px;
+    }
     .search{
+        @include mixin.respond(max,breakpoint.$breakpoint-md){
+            width: 100%;
+        }
         input{
             padding: 10px 20px;
             border: 1px solid variable.$border-color;
@@ -205,6 +239,12 @@ input:-ms-input-placeholder {
             font-weight: 400;
             color: variable.$black-color;
             width: 250px;
+        @include mixin.respond(max,breakpoint.$breakpoint-md){
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 14px;
+            line-height: 1.10;
+           }
         }
     }
 }

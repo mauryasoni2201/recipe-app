@@ -14,6 +14,7 @@ const RecipeTag = ({ recipes, tag }: { recipes: RecipeCardProps[]; tag: string }
       og: {
         title: `Top ${capitalizedTag} Recipes to Try Today`,
         description: `Discover flavorful ${tag.toLowerCase()} recipes perfect for any occasion. Step-by-step instructions and inspiration for your next meal.`,
+        image: "https://cdn.dummyjson.com/recipe-images/3.webp",
       },
     },
   };

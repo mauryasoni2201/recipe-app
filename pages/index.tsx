@@ -17,6 +17,7 @@ export default function Home({ data }: HomeSliderProps) {
         title: "Freshly | Home",
         description:
           "Explore a variety of curated recipes and cooking tips perfect for any occasion. Welcome to your new go-to food destination!",
+        image:'https://cdn.dummyjson.com/recipe-images/3.webp'
       },
     },
   };
