@@ -15,6 +15,7 @@ const RecipeCategory = ({ recipes, category }: { recipes: RecipeCardProps[]; cat
       og: {
         title: `Best ${capitalizedCategory} Recipes for Any Occasion`,
         description: `Explore our top-rated ${lowerCategory} recipes for flavorful and easy cooking. Great for any meal and every taste.`,
+        image: "https://cdn.dummyjson.com/recipe-images/3.webp",
       },
     },
   };

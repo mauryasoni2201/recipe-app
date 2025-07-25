@@ -1,44 +1,67 @@
-@use './variable.scss' as variable;
+@use './variable' as variable;
+@use './mixin' as mixin;
+@use './breakpoint.scss' as breakpoint;
 
 .h1,h1{
     font-size: 40px;
     line-height: 1.5;
     color: variable.$light-black-color;
     font-weight: 700;
+    @include mixin.respond(max,breakpoint.$breakpoint-md){
+        font-size: 35px;
+    }
 }
 .h2,h2{
     font-size: 35px;
     line-height: 1.5;
     color: variable.$light-black-color;
     font-weight: 700;
+    @include mixin.respond(max,breakpoint.$breakpoint-md){
+        font-size: 30px;
+    }
 }
 .h3,h3{
     font-size: 30px;
     line-height: 1.5;
     color: variable.$light-black-color;
     font-weight: 700;
+    @include mixin.respond(max,breakpoint.$breakpoint-md){
+        font-size: 25px;
+    }
 }
 .h4,h4{   
     font-size: 25px;
     line-height: 1.5;
     color: variable.$light-black-color;
     font-weight: 700;
+    @include mixin.respond(max,breakpoint.$breakpoint-md){
+        font-size: 20px;
+    }
 }
 .h5,h5{
     font-size: 20px;
     line-height: 1.5;
     color: variable.$light-black-color;
     font-weight: 700;
+    @include mixin.respond(max,breakpoint.$breakpoint-md){
+        font-size: 18px;
+    }
 }
 .h6,h6{
     font-size: 15px;
     line-height: 1.5;
     color: variable.$light-black-color;
     font-weight: 700;
+    @include mixin.respond(max,breakpoint.$breakpoint-md){
+        font-size: 13px;
+    }
 }
 .p,p{
     font-size: 16px;
     line-height: 1.5;
     color: variable.$light-black-color;
     font-weight: 400;
+    @include mixin.respond(max,breakpoint.$breakpoint-md){
+        font-size: 14px;
+    }
 }

@@ -1,13 +1,13 @@
-@use '../variable.scss' as variable;
+@use '../variable' as variable;
+@use '../mixin' as mixin;
+@use '../breakpoint' as breakpoint;
 
 .recipe-detail{
     .container{
         max-width: 790px;
-    }
     .tags{
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
         margin: 0px -5px;
         .tag-wrapper{
             padding: 0px 5px;
@@ -21,6 +21,9 @@
                 padding: 4px 8px;
                 text-align: center;
                 transition: variable.$transition;
+                @include mixin.respond(max,breakpoint.$breakpoint-xl){
+                    font-size: 13px;
+                }
                 &:hover{
                     color: variable.$white-color;
                     background-color: variable.$black-color;
@@ -32,6 +35,9 @@
         position: relative;
         padding-bottom: 56.316%;
         margin: 32px 0px;
+        @include mixin.respond(max,breakpoint.$breakpoint-xl){
+            margin: 20px 0px;
+        }
         img{
             border-radius: 24px;
             object-fit: cover;
@@ -47,6 +53,9 @@
             font-size: 14px;
             color: variable.$black-color;
             font-weight: 400;
+            @include mixin.respond(max,breakpoint.$breakpoint-xl){
+                font-size: 13px;
+            }
         }
     }
     .details{
@@ -54,6 +63,9 @@
         flex-direction: column;
         gap: 10px;
         padding-bottom: 20px;
+        @include mixin.respond(max,breakpoint.$breakpoint-xl){
+            padding-bottom: 10px;
+        }
         &.instructions{
             list-style: auto;
             padding-left: 20px;
@@ -69,6 +81,9 @@
             padding-left: 15px;
             font-weight: 400;
             position: relative;
+            @include mixin.respond(max,breakpoint.$breakpoint-xl){
+                font-size: 16px;
+            }
             &::after{
                 position: absolute;
                 content: '';
@@ -80,5 +95,6 @@
                 top: 12px;
             }
         }
+    }
     }
 }
