@@ -1,7 +1,8 @@
-import { RecipeDetailProps } from "@/models/RecipeProps";
-import Section from "../Section/Section";
 import Link from "next/link";
 import Image from "next/image";
+import { RecipeDetailProps } from "@/models/RecipeProps";
+import { Rating } from "@mui/material";
+import Section from "../Section/Section";
 
 const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => {
   return (
@@ -15,6 +16,10 @@ const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => 
             </Link>
           </div>
         ))}
+      </div>
+      <div className="rating-and-reviews">
+        <Rating name="half-rating-read" defaultValue={recipeDetail.rating} precision={0.5} readOnly />
+        <div className="review-count">({recipeDetail.reviewCount})</div>
       </div>
       <div className="recipe-image">
         <Image src={recipeDetail.image} fill alt={recipeDetail.name} />

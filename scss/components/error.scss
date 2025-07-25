@@ -1,0 +1,18 @@
+@use '../variable.scss' as variable;
+.error-message {
+	background-color: variable.$error-message-bg;
+	color: variable.$error-message-color;
+	.error-main {
+		padding: 30px;
+		.error-title h2 {
+			font-size: 24px;
+			font-weight: 600;
+			line-height: 28px;
+		}
+		.error-message p {
+			font-size: 20px;
+			font-weight: 300;
+			line-height: 30px;
+		}
+	}
+}

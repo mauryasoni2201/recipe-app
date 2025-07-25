@@ -6,7 +6,6 @@ import MetaDataProps from "@/models/MetaDataProps";
 
 const RecipeTag = ({ recipes, tag }: { recipes: RecipeCardProps[]; tag: string }) => {
   const capitalizedTag = tag.charAt(0).toUpperCase() + tag.slice(1);
-
   const meta: MetaDataProps = {
     metaData: {
       title: `Delicious ${capitalizedTag} Recipes | Easy & Tasty Ideas`,
@@ -39,13 +38,11 @@ export async function getServerSideProps(context: { params: { tag: string } }) {
     const response = await fetch(`${process.env.NEXT_RECIPES_API_URL}/tag/${tag}`);
     const data = await response.json();
     const recipes: RecipeCardProps[] = data.recipes;
-
     if (!recipes || recipes.length === 0) {
       return {
         notFound: true,
       };
     }
-
     return {
       props: {
         recipes,
@@ -54,7 +51,6 @@ export async function getServerSideProps(context: { params: { tag: string } }) {
     };
   } catch (error) {
     console.error("Error fetching recipes:", error);
-
     return {
       notFound: true,
     };

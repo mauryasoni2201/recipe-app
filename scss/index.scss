@@ -1,8 +1,13 @@
 @use './base.scss';
+
 @use './typography.scss';
+
 @use './components/header.scss';
 @use './components/button.scss';
 @use './components/not-found.scss';
+@use './components/loader.scss';
+@use './components/error.scss';
+
 @use './components/home-page-slider.scss';
 @use './components/category-listing.scss';
 @use './components/recipe-lisiting.scss';

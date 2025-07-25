@@ -1,7 +1,7 @@
-import CommonHead from "@/components/CommonHead/CommonHead";
-import Section from "@/components/Section/Section";
 import RecipeCardProps from "@/models/RecipeProps";
 import MetaDataProps from "@/models/MetaDataProps";
+import CommonHead from "@/components/CommonHead/CommonHead";
+import Section from "@/components/Section/Section";
 import RecipeListing from "@/components/RecipeListing/RecipeListing";
 
 const RecipeCategory = ({ recipes, category }: { recipes: RecipeCardProps[]; category: string }) => {
