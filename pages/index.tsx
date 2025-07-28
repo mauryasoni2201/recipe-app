@@ -37,7 +37,6 @@ export default function Home({ data }: HomeSliderProps) {
     </>
   );
 }
-
 export async function getServerSideProps() {
   try {
     const response: Response = await fetch(`${process.env.NEXT_RECIPES_API_URL}`);
