@@ -1,10 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const Header = () => {
   const path = usePathname();
-
+  const [open, setOpen] = useState(false);
+  const handleMenuOpen = () => {
+    setOpen(true);
+    document.body.classList.add("no-scroll");
+  };
+  const handleMenuClose = () => {
+    setOpen(false);
+    document.body.classList.remove("no-scroll");
+  };
   return (
     <div className="header-wrap">
       <header>
@@ -17,8 +26,18 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-            <div className="header-right">
+            <div className="menu-button">
+              <button onClick={handleMenuOpen}>
+                <Image src="/hamburger.svg" alt="menu-button" fill />
+              </button>
+            </div>
+            <div className={`header-right ${open ? "show" : ""}`}>
               <div className="header-links">
+                <div className="close-button">
+                  <button onClick={handleMenuClose}>
+                    <Image src={"/closebutton.svg"} alt="close-button" fill />
+                  </button>
+                </div>
                 <nav>
                   <ul>
                     <li>

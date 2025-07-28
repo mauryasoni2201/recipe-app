@@ -217,6 +217,10 @@ input:-ms-input-placeholder {
     }
 }
 
+.no-scroll{
+    overflow: hidden;
+}
+
 .title-and-search{
     display: flex;
     justify-content:space-between;
