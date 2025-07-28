@@ -4,7 +4,11 @@ const CategoryCard = ({ category }: { category: string }) => {
   return (
     <div className="category-card">
       <div className="content-wrapper">
-        <Link className="category-link" href={`/recipes/category/${category.toLowerCase()}/`}></Link>
+        <Link
+          aria-label={category.toLowerCase()}
+          className="category-link"
+          href={`/recipes/category/${category.toLowerCase()}/`}
+        ></Link>
         <div className="content">
           <p className="text">{category}</p>
         </div>
