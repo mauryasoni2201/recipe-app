@@ -3,6 +3,7 @@ import RecipeListing from "@/components/RecipeListing/RecipeListing";
 import Section from "@/components/Section/Section";
 import RecipeCardProps from "@/models/RecipeProps";
 import MetaDataProps from "@/models/MetaDataProps";
+import { GetServerSideProps } from "next";
 
 const RecipeTag = ({ recipes, tag }: { recipes: RecipeCardProps[]; tag: string }) => {
   const capitalizedTag = tag.charAt(0).toUpperCase() + tag.slice(1);
@@ -14,11 +15,10 @@ const RecipeTag = ({ recipes, tag }: { recipes: RecipeCardProps[]; tag: string }
       og: {
         title: `Top ${capitalizedTag} Recipes to Try Today`,
         description: `Discover flavorful ${tag.toLowerCase()} recipes perfect for any occasion. Step-by-step instructions and inspiration for your next meal.`,
-        image: "https://cdn.dummyjson.com/recipe-images/3.webp",
+        image: `https://${process.env.NEXT_RECIPES_API_DOMAIN}/recipe-images/3.webp`,
       },
     },
   };
-
   return (
     <>
       <CommonHead metaData={meta.metaData} />
@@ -31,29 +31,26 @@ const RecipeTag = ({ recipes, tag }: { recipes: RecipeCardProps[]; tag: string }
     </>
   );
 };
+
 export default RecipeTag;
 
-export async function getServerSideProps(context: { params: { tag: string } }) {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
-    const tag: string = context.params.tag;
+    const tag = context.params?.tag as string;
     const response = await fetch(`${process.env.NEXT_RECIPES_API_URL}/tag/${tag}`);
     const data = await response.json();
     const recipes: RecipeCardProps[] = data.recipes;
-    if (!recipes || recipes.length === 0) {
-      return {
-        notFound: true,
-      };
+    if (!Array.isArray(recipes) || recipes.length === 0) {
+      return { notFound: true };
     }
     return {
       props: {
         recipes,
-        tag: `${tag.charAt(0).toUpperCase() + tag.slice(1)}`,
+        tag: tag.charAt(0).toUpperCase() + tag.slice(1),
       },
     };
   } catch (error) {
     console.error("Error fetching recipes:", error);
-    return {
-      notFound: true,
-    };
+    throw error;
   }
-}
+};

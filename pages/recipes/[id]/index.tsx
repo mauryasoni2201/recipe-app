@@ -16,7 +16,6 @@ const RecipeDetailPage = ({ recipeDetail }: { recipeDetail: RecipeDetailProps })
       },
     },
   };
-
   return (
     <>
       <CommonHead metaData={meta.metaData} />
@@ -31,10 +30,13 @@ export async function getServerSideProps(context: { params: { id: string } }) {
     const id = context.params.id;
     const response: Response = await fetch(`${process.env.NEXT_RECIPES_API_URL}/${id}`);
     const data = await response.json();
-    if (!response.ok) {
+    if (response.status === 404) {
       return {
         notFound: true,
       };
+    }
+    if (!response.ok) {
+      throw new Error(`Failed to fetch: ${response.statusText}`);
     }
     return {
       props: {
@@ -43,8 +45,6 @@ export async function getServerSideProps(context: { params: { id: string } }) {
     };
   } catch (error) {
     console.error("Error fetching recipes:", error);
-    return {
-      notFound: true,
-    };
+    throw error;
   }
 }

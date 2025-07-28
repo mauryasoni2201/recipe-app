@@ -3,6 +3,7 @@ import MetaDataProps from "@/models/MetaDataProps";
 import CommonHead from "@/components/CommonHead/CommonHead";
 import Section from "@/components/Section/Section";
 import RecipeListing from "@/components/RecipeListing/RecipeListing";
+import { GetServerSideProps } from "next";
 
 const RecipeCategory = ({ recipes, category }: { recipes: RecipeCardProps[]; category: string }) => {
   const capitalizedCategory = category.charAt(0).toUpperCase() + category.slice(1);
@@ -15,7 +16,7 @@ const RecipeCategory = ({ recipes, category }: { recipes: RecipeCardProps[]; cat
       og: {
         title: `Best ${capitalizedCategory} Recipes for Any Occasion`,
         description: `Explore our top-rated ${lowerCategory} recipes for flavorful and easy cooking. Great for any meal and every taste.`,
-        image: "https://cdn.dummyjson.com/recipe-images/3.webp",
+        image: `https://${process.env.NEXT_RECIPES_API_DOMAIN}/recipe-images/3.webp`,
       },
     },
   };
@@ -33,27 +34,23 @@ const RecipeCategory = ({ recipes, category }: { recipes: RecipeCardProps[]; cat
 };
 export default RecipeCategory;
 
-export async function getServerSideProps(context: { params: { category: string } }) {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
-    const category = context.params.category;
+    const category = context.params?.category as string;
     const response = await fetch(`${process.env.NEXT_RECIPES_API_URL}/meal-type/${category}`);
     const data = await response.json();
     const recipes: RecipeCardProps[] = data.recipes;
-    if (!recipes || recipes.length === 0) {
-      return {
-        notFound: true,
-      };
+    if (!Array.isArray(recipes) || recipes.length === 0) {
+      return { notFound: true };
     }
     return {
       props: {
-        category: `${category.charAt(0).toUpperCase() + category.slice(1)}`,
-        recipes: recipes,
+        category: category.charAt(0).toUpperCase() + category.slice(1),
+        recipes,
       },
     };
   } catch (error) {
-    console.error("Error fetching recipes:", error);
-    return {
-      notFound: true,
-    };
+    console.error("Error fetching category recipes:", error);
+    throw error;
   }
-}
+};

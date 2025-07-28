@@ -17,7 +17,7 @@ export default function Home({ data }: HomeSliderProps) {
         title: "Freshly | Home",
         description:
           "Explore a variety of curated recipes and cooking tips perfect for any occasion. Welcome to your new go-to food destination!",
-        image:'https://cdn.dummyjson.com/recipe-images/3.webp'
+        image: `https://${process.env.NEXT_RECIPES_API_DOMAIN}/recipe-images/3.webp`,
       },
     },
   };
@@ -37,7 +37,6 @@ export default function Home({ data }: HomeSliderProps) {
     </>
   );
 }
-
 export async function getServerSideProps() {
   try {
     const response: Response = await fetch(`${process.env.NEXT_RECIPES_API_URL}`);
@@ -60,8 +59,6 @@ export async function getServerSideProps() {
     };
   } catch (error) {
     console.error("Error fetching recipes:", error);
-    return {
-      notFound: true,
-    };
+    throw error;
   }
 }
