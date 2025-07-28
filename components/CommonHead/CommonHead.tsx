@@ -3,7 +3,7 @@ import MetaDataProps from "@/models/MetaDataProps";
 
 const CommonHead = ({ metaData }: MetaDataProps) => {
   const { title, description, keywords, og } = metaData;
-  
+
   return (
     <Head>
       <title>{title}</title>
@@ -15,6 +15,21 @@ const CommonHead = ({ metaData }: MetaDataProps) => {
       <meta property="og:description" content={og.description} />
       <meta property="og:image" content={og.image} />
       <meta property="og:type" content="website" />
+      <link rel="canonical" href="https://recipe-app-ms.vercel.app/" />
+      <script
+        defer
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: `
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Freshly",
+                "url": "https://recipe-app-ms.vercel.app/"
+              }
+            `.trim(),
+        }}
+      />
     </Head>
   );
 };
