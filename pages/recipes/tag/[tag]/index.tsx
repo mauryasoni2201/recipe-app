@@ -15,7 +15,7 @@ const RecipeTag = ({ recipes, tag }: { recipes: RecipeCardProps[]; tag: string }
       og: {
         title: `Top ${capitalizedTag} Recipes to Try Today`,
         description: `Discover flavorful ${tag.toLowerCase()} recipes perfect for any occasion. Step-by-step instructions and inspiration for your next meal.`,
-        image: `${process.env.NEXT_RECIPES_API_IMAGE_URL}/3.webp`,
+        image: `https://${process.env.NEXT_RECIPES_API_DOMAIN}/recipe-images/3.webp`,
       },
     },
   };

@@ -89,7 +89,7 @@ const Recipes = () => {
         title: "Freshly | Recipes",
         description:
           "Explore a variety of curated recipes and cooking tips perfect for any occasion. Welcome to your new go-to food destination!",
-        image: `${process.env.NEXT_RECIPES_API_IMAGE_URL}/3.webp`,
+        image: `https://${process.env.NEXT_RECIPES_API_DOMAIN}/recipe-images/3.webp`,
       },
     },
   };
