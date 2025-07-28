@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const CategoryCard = ({ category }: { category: string }) => {
   return (
-    <div className="category-card">
+    <div className="category-card" data-aos-delay="400" data-aos="fade-up">
       <div className="content-wrapper">
         <Link
           aria-label={category.toLowerCase()}
