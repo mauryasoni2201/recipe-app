@@ -14,6 +14,7 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
   variable: "--font-space-grotesk",
 });
+
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     AOS.init({

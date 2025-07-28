@@ -3,7 +3,6 @@ import MetaDataProps from "@/models/MetaDataProps";
 
 const CommonHead = ({ metaData }: MetaDataProps) => {
   const { title, description, keywords, og } = metaData;
-
   return (
     <Head>
       <title>{title}</title>
