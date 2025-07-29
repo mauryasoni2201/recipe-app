@@ -3,8 +3,41 @@ import Image from "next/image";
 import { RecipeDetailProps } from "@/models/RecipeProps";
 import { Rating } from "@mui/material";
 import Section from "../Section/Section";
+import { useDispatch, useSelector } from "react-redux";
+import store from "@/store/store";
+import { recipeStoreActions } from "@/store/slices/recipeSlice";
+import Swal from "sweetalert2";
 
 const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => {
+  const dispatch = useDispatch();
+  const { favoriteRecipe } = useSelector(store.getState);
+  const handleAddToFavorites = () => {
+    const recipe = {
+      id: recipeDetail.id,
+      name: recipeDetail.name,
+      image: recipeDetail.image,
+      tags: recipeDetail.tags,
+    };
+    const findRecipeInFavorites = favoriteRecipe.some(({ id }) => id == recipe.id);
+    if (!findRecipeInFavorites) {
+      dispatch(
+        recipeStoreActions.addRecipe({
+          id: recipeDetail.id,
+          name: recipeDetail.name,
+          image: recipeDetail.image,
+          tags: recipeDetail.tags,
+        })
+      );
+      return Swal.fire({
+        title: "Recipe has been added successfully to favorites.",
+        icon: "success",
+      });
+    }
+    return Swal.fire({
+      title: `This recipe is already added in favorites.`,
+      icon: "error",
+    });
+  };
   return (
     <Section className="recipe-detail">
       <h1 className="h1 pb-medium">{recipeDetail.name}</h1>
@@ -17,9 +50,16 @@ const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => 
           </div>
         ))}
       </div>
-      <div className="rating-and-reviews">
-        <Rating name="half-rating-read" defaultValue={recipeDetail.rating} precision={0.5} readOnly />
-        <div className="review-count">({recipeDetail.reviewCount})</div>
+      <div className="review-and-actions">
+        <div className="rating-and-reviews">
+          <Rating name="half-rating-read" defaultValue={recipeDetail.rating} precision={0.5} readOnly />
+          <div className="review-count">({recipeDetail.reviewCount})</div>
+        </div>
+        <div className="add-to-favorites">
+          <button onClick={handleAddToFavorites} className="btn btn-primary">
+            Add to Favorites
+          </button>
+        </div>
       </div>
       <div className="recipe-image">
         <Image src={recipeDetail.image} fill alt={recipeDetail.name} />
@@ -45,5 +85,4 @@ const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => 
     </Section>
   );
 };
-
 export default RecipeDetail;

@@ -54,6 +54,24 @@ const Header = () => {
                         Recipes
                       </Link>
                     </li>
+                    <li>
+                      <Link
+                        onClick={handleMenuClose}
+                        href="/categories"
+                        className={path.startsWith("/categories") ? "active" : ""}
+                      >
+                        Categories
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        onClick={handleMenuClose}
+                        href="/favorites"
+                        className={path.startsWith("/favorites") ? "active" : ""}
+                      >
+                        Favorites
+                      </Link>
+                    </li>
                   </ul>
                 </nav>
               </div>

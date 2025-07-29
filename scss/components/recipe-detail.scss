@@ -43,11 +43,15 @@
             object-fit: cover;
         }
     }
-    .rating-and-reviews{ 
-        display: flex;
-        align-items: center;
-        gap: 5px;
+    .review-and-actions{
         padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .rating-and-reviews{ 
+            display: flex;
+            align-items: center;
+            gap: 5px;
         .review-count{
             line-height: 1;
             font-size: 14px;
@@ -57,6 +61,7 @@
                 font-size: 13px;
             }
         }
+    }
     }
     .details{
         display: flex;

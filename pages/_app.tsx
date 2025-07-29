@@ -7,6 +7,8 @@ import { Space_Grotesk } from "next/font/google";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import store from "@/store/store";
+import { Provider } from "react-redux";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -24,11 +26,13 @@ export default function App({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <main className={spaceGrotesk.className}>
-      <QueryClientProvider client={client}>
-        <MainLayout>
-          <Component {...pageProps} />
-        </MainLayout>
-      </QueryClientProvider>
+      <Provider store={store}>
+        <QueryClientProvider client={client}>
+          <MainLayout>
+            <Component {...pageProps} />
+          </MainLayout>
+        </QueryClientProvider>
+      </Provider>
     </main>
   );
 }

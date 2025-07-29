@@ -1,12 +1,16 @@
-import CategoryListing from "@/components/CategoryListing/CategoryListing";
 import CommonHead from "@/components/CommonHead/CommonHead";
 import HomeSlider from "@/components/HomeSlider/HomeSlider";
 import RecipeListing from "@/components/RecipeListing/RecipeListing";
 import Section from "@/components/Section/Section";
-import HomeSliderProps from "@/models/HomeSliderProps";
+import Recipe from "@/models/RecipeProps";
 import MetaDataProps from "@/models/MetaDataProps";
+import RecipeSlider from "@/models/RecipeSlider";
 
-export default function Home({ data }: HomeSliderProps) {
+export default function Home({
+  data: { recipes, underThirtyMinutesRecipes, topRatedRecipes },
+}: {
+  data: { recipes: RecipeSlider[]; underThirtyMinutesRecipes: Recipe[]; topRatedRecipes: Recipe[] };
+}) {
   const meta: MetaDataProps = {
     metaData: {
       title: "Freshly | Home",
@@ -24,25 +28,24 @@ export default function Home({ data }: HomeSliderProps) {
   return (
     <>
       <CommonHead metaData={meta.metaData} />
-      <HomeSlider recipes={data.recipes} />
-      <CategoryListing categories={data.categories} />
-      <Section className="pt-none">
+      <HomeSlider recipes={recipes} />
+      <Section className="pb-none">
         <h2 className="h2 pb-large">Top Rated Recipes</h2>
-        <RecipeListing recipes={data.topRatedRecipes} />
+        <RecipeListing recipes={topRatedRecipes} />
       </Section>
-      <Section className="pt-none">
+      <Section>
         <h2 className="h2 pb-large">Under 30 Minutes</h2>
-        <RecipeListing recipes={data.underThirtyMinutesRecipes} />
+        <RecipeListing recipes={underThirtyMinutesRecipes} />
       </Section>
     </>
   );
 }
+
 export async function getServerSideProps() {
   try {
-    const response: Response = await fetch(`${process.env.NEXT_RECIPES_API_URL}`);
+    const response: Response = await fetch(`${process.env.NEXT_RECIPES_API_URL}?limit=50`);
     const data = await response.json();
-    const filteredCategory = [...new Set(data.recipes.flatMap((recipe: { mealType: string }) => recipe.mealType))];
-    const topRatedRecipes = data.recipes.filter((element: { rating: number }) => element.rating > 4.5);
+    const topRatedRecipes = data.recipes.filter((element: { rating: number }) => element.rating > 4.7);
     const underThirtyMinutesRecipes = data.recipes.filter(
       (element: { prepTimeMinutes: number; cookTimeMinutes: number }) =>
         element.prepTimeMinutes + element.cookTimeMinutes < 30
@@ -53,7 +56,6 @@ export async function getServerSideProps() {
           recipes: data.recipes,
           topRatedRecipes,
           underThirtyMinutesRecipes,
-          categories: filteredCategory,
         },
       },
     };
