@@ -6,7 +6,7 @@ const RecipeCard = ({ recipe, noAnimation }: { recipe: RecipeProps; noAnimation?
   return (
     <div
       className="recipe-card"
-      {...(noAnimation ? { "data-aos": "", "data-aos-delay": "" } : { "data-aos": "fade-up", "data-aos-delay": "400" })}
+      {...(noAnimation ? { "data-aos": "", "data-aos-delay": "" } : { "data-aos": "fade-up", "data-aos-delay": "600" })}
     >
       <div className="card-wrapper">
         <div className="card-image-and-content">
