@@ -7,7 +7,7 @@ const CategoryCard = ({ category }: { category: string }) => {
         <Link
           aria-label={category.toLowerCase()}
           className="category-link"
-          href={`/recipes/category/${category.toLowerCase()}/`}
+          href={`/categories/${category.toLowerCase()}/`}
         ></Link>
         <div className="content">
           <p className="text">{category}</p>
@@ -16,4 +16,5 @@ const CategoryCard = ({ category }: { category: string }) => {
     </div>
   );
 };
+
 export default CategoryCard;
