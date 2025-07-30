@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 
 const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => {
   const dispatch = useDispatch();
-  const favoriteRecipe = useSelector((state: ReturnType<typeof store.getState>) => state.favoriteRecipe);
+  const { favoriteRecipe } = useSelector(store.getState);
   const handleAddToFavorites = () => {
     const recipe = {
       id: recipeDetail.id,
@@ -29,12 +29,12 @@ const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => 
         })
       );
       return Swal.fire({
-        title: "Recipe has been added to your favorites successfully.",
+        title: "Recipe added to your favorites successfully!",
         icon: "success",
       });
     }
     return Swal.fire({
-      title: `This recipe already exists in your favorites.`,
+      title: "This recipe is already in your favorites.",
       icon: "error",
     });
   };
