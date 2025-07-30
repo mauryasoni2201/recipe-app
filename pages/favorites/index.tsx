@@ -36,7 +36,6 @@ const RecipeFavorites = () => {
       },
     },
   };
-
   return (
     <>
       <CommonHead metaData={meta.metaData} />
@@ -53,4 +52,5 @@ const RecipeFavorites = () => {
     </>
   );
 };
+
 export default RecipeFavorites;
