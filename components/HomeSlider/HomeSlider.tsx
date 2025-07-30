@@ -3,12 +3,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Link from "next/link";
-import { SliderRecipeImage } from "@/models/RecipeSlider";
+import RecipeSlider from "@/models/RecipeSlider";
 
-interface HomeSliderProps {
-  recipes: SliderRecipeImage[];
-}
-const HomeSlider = ({ recipes }: HomeSliderProps) => {
+const HomeSlider = ({ recipes }: { recipes: RecipeSlider[] }) => {
   const settings = {
     dots: false,
     arrows: false,
@@ -38,9 +35,9 @@ const HomeSlider = ({ recipes }: HomeSliderProps) => {
   };
   return (
     <Slider {...settings}>
-      {recipes.map((recipe: SliderRecipeImage) => {
+      {recipes.map((recipe: RecipeSlider) => {
         return (
-          <Link key={recipe.id} className="slider-link" href={`recipes/${recipe.id}`}>
+          <Link key={recipe.id} className="slider-link" href={`/recipes/${recipe.id}`}>
             <div className="slider-image-wrapper">
               <Image src={recipe.image} alt={recipe.name} fill />
             </div>
@@ -50,5 +47,4 @@ const HomeSlider = ({ recipes }: HomeSliderProps) => {
     </Slider>
   );
 };
-
 export default HomeSlider;
