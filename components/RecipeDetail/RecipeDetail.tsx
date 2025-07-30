@@ -62,7 +62,7 @@ const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => 
         </div>
       </div>
       <div className="recipe-image">
-        <Image src={recipeDetail.image} fill alt={recipeDetail.name} />
+        <Image src={recipeDetail.image} fill alt={recipeDetail.name} loading="lazy" />
       </div>
       <h2 className="h2 pb-medium">Details</h2>
       <ul className="details">

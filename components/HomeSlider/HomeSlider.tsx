@@ -39,7 +39,7 @@ const HomeSlider = ({ recipes }: { recipes: RecipeSlider[] }) => {
         return (
           <Link key={recipe.id} className="slider-link" href={`/recipes/${recipe.id}`}>
             <div className="slider-image-wrapper">
-              <Image src={recipe.image} alt={recipe.name} fill />
+              <Image loading="lazy" src={recipe.image} alt={recipe.name} fill />
             </div>
           </Link>
         );

@@ -43,7 +43,7 @@ const RecipeCard = ({
     >
       <div className="card-wrapper">
         <div className="card-image-and-content">
-          <Image fill src={recipe.image} alt={recipe.name} />
+          <Image fill src={recipe.image} alt={recipe.name} loading="lazy" />
           {removeRecipeFromFavorites && (
             <div className="remove-from-favorites">
               <button onClick={handleRemoveItemsFromFavorites} className="btn btn-primary">
