@@ -21,9 +21,10 @@ const RecipeCard = ({
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#28a745",
+      cancelButtonColor: "#dc3545",
       confirmButtonText: "Yes, remove it!",
+      cancelButtonText: "No, keep it",
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
@@ -68,5 +69,4 @@ const RecipeCard = ({
     </div>
   );
 };
-
 export default RecipeCard;
