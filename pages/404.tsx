@@ -12,6 +12,7 @@ const NotFound = () => {
       og: {
         title: "Page not found.",
         description: "Page not found.",
+        image: `https://${process.env.NEXT_RECIPES_API_DOMAIN}/recipe-images/3.webp`,
       },
     },
   };
@@ -34,5 +35,4 @@ const NotFound = () => {
     </>
   );
 };
-
 export default NotFound;
