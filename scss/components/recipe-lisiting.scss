@@ -23,6 +23,24 @@
             .card-image-and-content{
                 position: relative;
                 padding-bottom: 100%;
+                .remove-from-favorites{
+                   position: absolute;
+                   right: 10px;
+                   top: 10px;
+                   z-index: 3;
+                   .btn{
+                    padding: 5px 10px;
+                    font-size: 13px;
+                    background-color: variable.$red-color;
+                    color: variable.$white-color;
+                    border-radius: 24px;
+                    border: 0px;
+                    &:hover{
+                       color: variable.$red-color;
+                       background-color: variable.$white-color;
+                    }
+                   }
+                }
                 img{
                     object-fit: cover;
                     border-radius: 24px;
