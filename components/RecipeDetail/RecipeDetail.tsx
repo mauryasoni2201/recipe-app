@@ -29,12 +29,12 @@ const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => 
         })
       );
       return Swal.fire({
-        title: "Recipe has been added successfully to favorites.",
+        title: "Recipe has been added to your favorites successfully.",
         icon: "success",
       });
     }
     return Swal.fire({
-      title: `This recipe is already added in favorites.`,
+      title: `This recipe already exists in your favorites.`,
       icon: "error",
     });
   };
