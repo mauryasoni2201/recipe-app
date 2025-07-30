@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 
 const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => {
   const dispatch = useDispatch();
-  const { favoriteRecipe } = useSelector(store.getState);
+  const favoriteRecipe = useSelector((state: ReturnType<typeof store.getState>) => state.favoriteRecipe);
   const handleAddToFavorites = () => {
     const recipe = {
       id: recipeDetail.id,

@@ -7,6 +7,7 @@
     color: variable.$white-color;
     background-color: variable.$black-color;
     border-radius: 5px;
+    font-family: variable.$font-family;
     transition: variable.$transition;
     border: 1px solid variable.$primary-color;
     &.btn-primary{
