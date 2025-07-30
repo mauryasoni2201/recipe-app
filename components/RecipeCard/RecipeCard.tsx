@@ -23,8 +23,8 @@ const RecipeCard = ({
       showCancelButton: true,
       confirmButtonColor: "#28a745",
       cancelButtonColor: "#dc3545",
-      confirmButtonText: "Yes, remove it!",
-      cancelButtonText: "No, keep it",
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
@@ -35,6 +35,7 @@ const RecipeCard = ({
       }
     });
   };
+
   return (
     <div
       className="recipe-card"
@@ -69,4 +70,5 @@ const RecipeCard = ({
     </div>
   );
 };
+
 export default RecipeCard;
