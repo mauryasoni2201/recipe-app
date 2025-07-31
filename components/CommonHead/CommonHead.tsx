@@ -5,7 +5,7 @@ import MetaDataProps from "@/models/MetaDataProps";
 const CommonHead = ({ metaData }: MetaDataProps) => {
   const { title, description, keywords, og } = metaData;
   const router = useRouter();
-  const baseUrl = "https://recipe-app-ms.vercel.app";
+  const baseUrl = process.env.NEXT_RECIPES_WEBISTE_URL;
   const canonicalUrl = `${baseUrl}${router.asPath.split("?")[0]}`;
 
   return (
@@ -13,7 +13,7 @@ const CommonHead = ({ metaData }: MetaDataProps) => {
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      <meta name="google-site-verification" content="VlNYaSNCxXfOvMA4zHHwIUiH7i_qWBpF2fSV_38U6yE" />
+      <meta name="google-site-verification" content={process.env.NEXT_GOOGLE_SITE_VERIFICATION} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="UTF-8" />
       <meta property="og:title" content={og.title} />
