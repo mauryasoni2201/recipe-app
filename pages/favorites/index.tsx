@@ -44,7 +44,7 @@ const RecipeFavorites = () => {
         {!isClient ? (
           <Loader />
         ) : favoriteRecipe.length ? (
-          <Favorites removeRecipeItem={true} recipes={favoriteRecipe} />
+          <Favorites noAnimate={true} removeRecipeItem={true} recipes={favoriteRecipe} />
         ) : (
           <p className="text-center">No favorites added yet.</p>
         )}
