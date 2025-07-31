@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import store from "@/store/store";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Provider } from "react-redux";
 
 const spaceGrotesk = Space_Grotesk({
@@ -28,6 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <main className={spaceGrotesk.className}>
       <Provider store={store}>
         <QueryClientProvider client={client}>
+          <SpeedInsights />
           <MainLayout>
             <Component {...pageProps} />
           </MainLayout>
