@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => {
   const dispatch = useDispatch();
   const { favoriteRecipe } = useSelector(store.getState);
+  const findRecipeInFavorites = favoriteRecipe.some(({ id }) => id == recipeDetail.id);
   const handleAddToFavorites = () => {
     const recipe = {
       id: recipeDetail.id,
@@ -18,16 +19,8 @@ const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => 
       image: recipeDetail.image,
       tags: recipeDetail.tags,
     };
-    const findRecipeInFavorites = favoriteRecipe.some(({ id }) => id == recipe.id);
     if (!findRecipeInFavorites) {
-      dispatch(
-        recipeStoreActions.addRecipe({
-          id: recipeDetail.id,
-          name: recipeDetail.name,
-          image: recipeDetail.image,
-          tags: recipeDetail.tags,
-        })
-      );
+      dispatch(recipeStoreActions.addRecipe(recipe));
       return Swal.fire({
         title: "Recipe added to your favorites successfully!",
         icon: "success",
@@ -55,11 +48,15 @@ const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => 
           <Rating name="half-rating-read" defaultValue={recipeDetail.rating} precision={0.5} readOnly />
           <div className="review-count">({recipeDetail.reviewCount})</div>
         </div>
-        <div className="add-to-favorites">
-          <button onClick={handleAddToFavorites} className="btn btn-primary">
-            Add to Favorites
-          </button>
-        </div>
+        {findRecipeInFavorites ? (
+          <p className="p">Already in your favorites.</p>
+        ) : (
+          <div className="add-to-favorites">
+            <button onClick={handleAddToFavorites} className="btn btn-primary">
+              Add to Favorites
+            </button>
+          </div>
+        )}
       </div>
       <div className="recipe-image">
         <Image src={recipeDetail.image} fill alt={recipeDetail.name} loading="lazy" />
@@ -85,4 +82,5 @@ const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => 
     </Section>
   );
 };
+
 export default RecipeDetail;
