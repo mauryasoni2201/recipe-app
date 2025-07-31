@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import MetaDataProps from "@/models/MetaDataProps";
 import CommonHead from "@/components/CommonHead/CommonHead";
 import Section from "@/components/Section/Section";
-import { useSelector } from "react-redux";
 import store from "@/store/store";
 import dynamic from "next/dynamic";
 

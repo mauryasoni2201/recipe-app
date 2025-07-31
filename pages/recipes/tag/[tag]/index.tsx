@@ -1,9 +1,9 @@
+import { GetServerSideProps } from "next";
 import CommonHead from "@/components/CommonHead/CommonHead";
 import RecipeListing from "@/components/RecipeListing/RecipeListing";
 import Section from "@/components/Section/Section";
 import RecipeCardProps from "@/models/RecipeProps";
 import MetaDataProps from "@/models/MetaDataProps";
-import { GetServerSideProps } from "next";
 
 const RecipeTag = ({ recipes, tag }: { recipes: RecipeCardProps[]; tag: string }) => {
   const capitalizedTag = tag.charAt(0).toUpperCase() + tag.slice(1);

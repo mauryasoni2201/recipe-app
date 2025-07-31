@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { RecipeDetailProps } from "@/models/RecipeProps";
-import { Rating } from "@mui/material";
-import Section from "../Section/Section";
-import { useDispatch, useSelector } from "react-redux";
-import store from "@/store/store";
-import { recipeStoreActions } from "@/store/slices/recipeSlice";
 import Swal from "sweetalert2";
+import { Rating } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { RecipeDetailProps } from "@/models/RecipeProps";
+import { recipeStoreActions } from "@/store/slices/recipeSlice";
+import Section from "../Section/Section";
+import store from "@/store/store";
 
 const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => {
   const dispatch = useDispatch();
