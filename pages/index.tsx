@@ -30,7 +30,7 @@ export default function Home({
       <CommonHead metaData={meta.metaData} />
       <HomeSlider recipes={recipes} />
       <Section className="pb-none">
-        <h2 className="h2 pb-large">Top Rated Recipes</h2>
+        <h1 className="h2 pb-large">Top Rated Recipes</h1>
         <RecipeListing recipes={topRatedRecipes} />
       </Section>
       <Section>
