@@ -49,6 +49,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .add-to-favorites{
+      .btn{
+          background-color: variable.$white-color;
+          padding: 5px;
+          border-radius: 50%;
+          font-size: 16px;
+          line-height: 1.25;
+          border: 1px solid variable.$add-to-favorites-color;
+      }
+    }
     .rating-and-reviews {
       display: flex;
       align-items: center;

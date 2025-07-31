@@ -1,52 +1,38 @@
 # Recipe App 🍽️
 
-A modern and responsive recipe application focused on performance, SEO, and a smooth user experience.
+Discover mouth-watering recipes, cooking tips, and flavorful food categories to inspire your next meal.
 
-🔗 Live: [https://recipe-app-ms.vercel.app](https://recipe-app-ms.vercel.app)
-
----
-
-## 🌐 Sitemap Pages
-
-These key pages are indexed and updated daily for SEO:
-
-- **Home** → [`/`](https://recipe-app-ms.vercel.app/)
-- **Categories** → [`/categories`](https://recipe-app-ms.vercel.app/categories/)
-- **Favorites** → [`/favorites`](https://recipe-app-ms.vercel.app/favorites/)
-- **Recipes** → [`/recipes`](https://recipe-app-ms.vercel.app/recipes/)
-
-Each URL is prioritized at `0.7` and set to refresh daily in the sitemap.
+🔗 **Live Demo**: [https://recipe-app-ms.vercel.app](https://recipe-app-ms.vercel.app)
 
 ---
 
 ## 📦 Features
 
-- Browse & search recipes  
-- Filter by category  
-- Mark recipes as favorites  
-- Fully responsive design  
-- SEO-optimized with sitemap and metadata  
+- 🔍 Browse and search recipes  
+- 🗂️ Filter by category  
+- ❤️ Mark recipes as favorites  
 
 ---
 
 ## 🚀 Tech Stack
 
-- **Framework**: [Next.js](https://nextjs.org/)
-- **Hosting**: [Vercel](https://vercel.com/)
-- **Images**: Optimized with Next.js `<Image />`
-- **Sitemap**: Includes news, mobile, image, and video support (extensible)
+- **Framework**: [Next.js](https://nextjs.org/)  
+- **Hosting**: [Vercel](https://vercel.com/)  
+- **Images**: Optimized using Next.js `<Image />` component  
 
 ---
 
 ## 🛠️ Getting Started
 
+Follow the steps below to run the project locally:
+
 ```bash
-# 1. Clone the project
+# 1. Clone the repository
 git clone https://github.com/yourusername/recipe-app.git
 cd recipe-app
 
-# 2. Install dependencies
+# 2. Install project dependencies
 npm install
 
-# 3. Start the development server
+# 3. Run the development server
 npm run dev
