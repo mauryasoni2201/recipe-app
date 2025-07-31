@@ -1,15 +1,15 @@
 import MainLayout from "@/layouts/Layout";
-import "@/scss/index.scss";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Provider } from "react-redux";
 import { client } from "@/utils/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
 import { Space_Grotesk } from "next/font/google";
 import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import store from "@/store/store";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Provider } from "react-redux";
+import AOS from "aos";
+import "@/scss/index.scss";
+import "aos/dist/aos.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],

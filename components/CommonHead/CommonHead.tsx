@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import MetaDataProps from "@/models/MetaDataProps";
+import { useRouter } from "next/router";
 
 const CommonHead = ({ metaData }: MetaDataProps) => {
   const { title, description, keywords, og } = metaData;

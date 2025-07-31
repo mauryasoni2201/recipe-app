@@ -1,6 +1,6 @@
+import { RecipeDetailProps } from "@/models/RecipeProps";
 import CommonHead from "@/components/CommonHead/CommonHead";
 import RecipeDetail from "@/components/RecipeDetail/RecipeDetail";
-import { RecipeDetailProps } from "@/models/RecipeProps";
 import MetaDataProps from "@/models/MetaDataProps";
 
 const RecipeDetailPage = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => {

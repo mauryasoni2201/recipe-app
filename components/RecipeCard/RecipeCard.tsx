@@ -1,9 +1,9 @@
-import RecipeProps from "@/models/RecipeProps";
-import { recipeStoreActions } from "@/store/slices/recipeSlice";
+import { useDispatch } from "react-redux";
 import Image from "next/image";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
+import { recipeStoreActions } from "@/store/slices/recipeSlice";
+import RecipeProps from "@/models/RecipeProps";
 
 const RecipeCard = ({
   recipe,

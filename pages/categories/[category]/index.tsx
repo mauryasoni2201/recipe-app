@@ -1,9 +1,9 @@
+import { GetServerSideProps } from "next";
 import RecipeCardProps from "@/models/RecipeProps";
 import MetaDataProps from "@/models/MetaDataProps";
 import CommonHead from "@/components/CommonHead/CommonHead";
 import Section from "@/components/Section/Section";
 import RecipeListing from "@/components/RecipeListing/RecipeListing";
-import { GetServerSideProps } from "next";
 
 const RecipeCategory = ({ recipes, category }: { recipes: RecipeCardProps[]; category: string }) => {
   const capitalizedCategory = category.charAt(0).toUpperCase() + category.slice(1);
