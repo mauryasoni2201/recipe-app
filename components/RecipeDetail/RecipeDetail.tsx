@@ -10,7 +10,7 @@ import store from "@/store/store";
 
 const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => {
   const dispatch = useDispatch();
-  const { favoriteRecipe } = useSelector(store.getState);
+  const favoriteRecipe = useSelector((state: ReturnType<typeof store.getState>) => state.favoriteRecipe);
   const findRecipeInFavorites = favoriteRecipe.some(({ id }) => id == recipeDetail.id);
   const handleAddToFavorites = () => {
     const recipe = {
@@ -49,11 +49,11 @@ const RecipeDetail = ({ recipeDetail }: { recipeDetail: RecipeDetailProps }) => 
           <div className="review-count">({recipeDetail.reviewCount})</div>
         </div>
         {findRecipeInFavorites ? (
-          <p className="p">Already in your favorites.</p>
+          <p className="p">Added to favorites.</p>
         ) : (
           <div className="add-to-favorites">
-            <button onClick={handleAddToFavorites} className="btn btn-primary">
-              Add to Favorites
+            <button aria-label="Add To Favorites" onClick={handleAddToFavorites} className="btn btn-primary">
+              ❤️
             </button>
           </div>
         )}
