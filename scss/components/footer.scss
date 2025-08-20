@@ -1,0 +1,23 @@
+@use '../variable.scss' as *;
+
+footer{
+    padding: 10px 0px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 10px;
+    background-color: $white-color;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 10;
+    p{
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 14px;
+        a{
+            transition: $transition;
+            &:hover{
+                color: $primary-color;
+            }
+        }
+    }
+}
