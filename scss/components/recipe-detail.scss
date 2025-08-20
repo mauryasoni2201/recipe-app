@@ -9,6 +9,7 @@
   .tags {
     display: flex;
     flex-wrap: wrap;
+    row-gap: 10px;
     margin: 0px -5px;
     .tag-wrapper {
       padding: 0px 5px;
